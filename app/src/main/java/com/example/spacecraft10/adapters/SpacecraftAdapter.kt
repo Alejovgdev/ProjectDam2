@@ -15,7 +15,6 @@ import com.example.spacecraft10.databinding.ItemSpacecraftBinding
 class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewHolder>() {
 
     private var spacecraftList: List<Results> = listOf()
-    private val apiKey = "AIzaSyCbdttg6L-kXgzAjjN5c82lS8MEN_gmfkw"
 
     // Actualiza la lista de datos
     fun submitList(spacecrafts: List<Results>) {
@@ -60,7 +59,7 @@ class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewH
 
                     // Si entra en este if es porque no el texto no es null y podemos proceder a llamar al metodo traducir del repo
 
-                    repo.translateText(textDescription, "es", apiKey) { translatedText ->
+                    repo.translateText(textDescription, "es") { translatedText ->
                         binding.tvDescription.text = translatedText
                     }
                 }

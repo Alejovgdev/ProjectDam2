@@ -4,11 +4,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class TranslationRepository {
-    fun translateText(text: String, targetLang: String, apiKey: String, callback: (String) -> Unit) {
+
+    private val apikey = ""
+
+    fun translateText(text: String, targetLang: String, callback: (String) -> Unit) {
         val request = TranslationRequest(q = text, target = targetLang)
 
-        RetrofitClient.instance.translateText(apiKey, request)
+        RetrofitClient.instance.translateText(apikey, request)
             .enqueue(object : Callback<TranslationResponse> {
                 override fun onResponse(call: Call<TranslationResponse>, response: Response<TranslationResponse>) {
                     if (response.isSuccessful) {
