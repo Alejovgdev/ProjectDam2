@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_naves"
+        android:icon="@drawable/baseline_rocket_24"
+        android:title="Spacecrafts"
+        android:iconTint="@drawable/menu_item_selector"/>
+    <item
+        android:id="@+id/nav_maps"
+        android:icon="@drawable/baseline_map_24"
+        android:title="Maps"
+        android:iconTint="@drawable/menu_item_selector"/>
+    <item
+        android:id="@+id/nav_chatBot"
+        android:icon="@drawable/baseline_smart_toy_24"
+        android:title="AI Agent"
+        android:iconTint="@drawable/menu_item_selector"/>
+
+</menu>

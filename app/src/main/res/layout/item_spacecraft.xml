@@ -5,15 +5,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardV"
         android:layout_width="340dp"
-        android:layout_height="620dp"
+        android:layout_height="470dp"
         android:layout_marginTop="20dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#C3C3C3"
+        app:strokeWidth="2dp">
 
         <ImageView
             android:id="@+id/imageView"
@@ -26,8 +29,9 @@
             android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="240dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="250dp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             tools:text="Apollo Command/Service Module" />
 
@@ -35,30 +39,35 @@
             android:id="@+id/tvAgencia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="61dp"
-            android:layout_marginTop="270dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="280dp"
+            android:textColor="@color/black"
             android:textStyle="bold"
             tools:text="National Aeronautics and Space Administration" />
 
         <TextView
             android:id="@+id/tvInUse"
-            android:layout_width="wrap_content"
+            android:layout_width="78dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:textColor="@color/black"
             android:background="#4CAF50"
-            android:layout_marginStart="111dp"
-            android:layout_marginTop="220dp"
-            tools:text="Se usa actualmente"/>
+            android:textAlignment="center"
+            android:layout_marginTop="451dp"
+            tools:text="En desuso"
+            />
 
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="400dp"
-            android:layout_marginStart="30dp"/>
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginTop="320dp"
+            android:layout_marginStart="20dp"/>
 
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

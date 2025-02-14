@@ -45,8 +45,8 @@ class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewH
 
 
             // Asocia los datos con las vistas
-            binding.tvNombre.text = spacecraft.name.toString()
-            binding.tvAgencia.text = spacecraft.agency.name.toString()
+            binding.tvNombre.text = "Nave: " + spacecraft.name
+            binding.tvAgencia.text = "Agencia: " + spacecraft.agency.name
             binding.tvDescription.text = "No hay descripcion disponible"
 
             val repo = TranslationRepository()
@@ -65,15 +65,17 @@ class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewH
                 }
             }
 
-
-
+            var inUse = binding.tvInUse
+            var cardView = binding.cardV
 
             if (spacecraft.in_use){
-                binding.tvInUse.setBackgroundColor(Color.GREEN)
-                binding.tvInUse.text = "Se usa actualmente"
+                cardView.setStrokeColor(Color.GREEN)
+                inUse.setBackgroundColor(Color.GREEN)
+                inUse.text = "En uso"
             }else{
-                binding.tvInUse.setBackgroundColor(Color.RED)
-                binding.tvInUse.text = "No usada actualmente"
+                cardView.setStrokeColor(Color.RED)
+                inUse.setBackgroundColor(Color.RED)
+                inUse.text = "En desuso"
             }
 
             if (spacecraft.image != null) {
