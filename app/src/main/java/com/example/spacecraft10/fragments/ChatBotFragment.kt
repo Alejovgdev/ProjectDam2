@@ -2,6 +2,7 @@ package com.example.spacecraft10.fragments
 
 import androidx.fragment.app.Fragment
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,8 @@ class ChatBotFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         cargarModelo()
+        Log.d("**************", "ENNTRA EM ONCREATE")
+
     }
 
     override fun onCreateView(
@@ -31,7 +34,7 @@ class ChatBotFragment : Fragment() {
     ): View {
         binding = FragmentChatBotBinding.inflate(inflater, container, false)
 
-        // Configurar RecyclerView
+
         chatAdapter = ChatAdapter(chatMessages)
         binding.rvChat.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -54,6 +57,12 @@ class ChatBotFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d("!!!!!!!!!!!!!", "ENNTRA EM ON RESUM")
     }
 
     private fun agregarMensaje(text: String, isUser: Boolean) {
