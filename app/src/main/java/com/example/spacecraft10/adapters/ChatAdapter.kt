@@ -12,12 +12,13 @@ import com.example.spacecraft10.R
 import com.example.spacecraft10.data.responseChat.ChatMessage
 
 class ChatAdapter(private val messages: List<ChatMessage>) :
+
     RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
     class ChatViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val cardMessage: CardView = view.findViewById(R.id.cardMessage)
         val tvMessage: TextView = view.findViewById(R.id.tvMessage)
-        val rootLayout: ConstraintLayout = view.findViewById(R.id.rootLayout) // Nuevo
+        val rootLayout: ConstraintLayout = view.findViewById(R.id.rootLayout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {

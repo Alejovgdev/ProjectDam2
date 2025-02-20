@@ -1,6 +1,7 @@
 package com.example.spacecraft10.db
 
 import android.app.Application
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
@@ -8,7 +9,16 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+
+// Aplicación personalizada que gestiona la base de datos de agencias espaciales
 class AgenciaMarkerApplication : Application() {
+
+    // Clase de base de datos utilizando Room para gestionar las agencias espaciales
+    @Database(entities = [AgenciaMarker::class], version = 1)
+    abstract class AppDatabase : RoomDatabase() {
+        abstract fun agenciaDao(): AgenciaMarkerDao
+
+    }
 
     companion object {
         lateinit var database: AppDatabase
@@ -17,6 +27,7 @@ class AgenciaMarkerApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        // Callback para inicializar la base de datos cuando se crea
         val callback = object : RoomDatabase.Callback() {
             override fun onCreate(db: SupportSQLiteDatabase) {
                 super.onCreate(db)
@@ -35,6 +46,7 @@ class AgenciaMarkerApplication : Application() {
             }
         }
 
+        // Construye la base de datos utilizando Room y agrega el callback
         database = Room.databaseBuilder(this, AppDatabase::class.java, "AgenciasDatabase")
             .addCallback(callback)
             .build()

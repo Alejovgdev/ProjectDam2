@@ -11,7 +11,6 @@ import com.example.spacecraft10.databinding.ItemSpacecraftBinding
 
 
 
-// Adapter para mostrar las naves espaciales
 class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewHolder>() {
 
     private var spacecraftList: List<Results> = listOf()
@@ -22,29 +21,24 @@ class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewH
         notifyDataSetChanged() // Notifica que los datos han cambiado
     }
 
-    // Crea una nueva vista y la devuelve como un ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SpacecraftViewHolder {
         val binding = ItemSpacecraftBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return SpacecraftViewHolder(binding)
     }
 
-    // Vuelve a llenar el ViewHolder con los datos de la nave espacial
     override fun onBindViewHolder(holder: SpacecraftViewHolder, position: Int) {
         val spacecraft = spacecraftList[position]
         holder.bind(spacecraft)
     }
 
-    // Devuelve el número total de elementos
     override fun getItemCount(): Int {
         return spacecraftList.size
     }
 
-    // ViewHolder que maneja los elementos del layout
     inner class SpacecraftViewHolder(private val binding: ItemSpacecraftBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(spacecraft: Results) {
 
 
-            // Asocia los datos con las vistas
             binding.tvNombre.text = "Nave: " + spacecraft.name
             binding.tvAgencia.text = "Agencia: " + spacecraft.agency.name
             binding.tvDescription.text = "No hay descripcion disponible"
@@ -78,14 +72,14 @@ class SpacecraftAdapter : RecyclerView.Adapter<SpacecraftAdapter.SpacecraftViewH
                 inUse.text = "En desuso"
             }
 
+            // Si la nave tiene una imagen asociada, la cargamos usando Glide
             if (spacecraft.image != null) {
                 Glide.with(itemView.context)
-                    .load(spacecraft.image.image_url)  // Acceder de manera segura
+                    .load(spacecraft.image.image_url)
                     .into(binding.imageView)
             } else {
-                // Opcional: Mostrar una imagen predeterminada en caso de que no haya imagen
                 Glide.with(itemView.context)
-                    .load(R.drawable.img)  // Una imagen predeterminada
+                    .load(R.drawable.img)  // Una imagen por defecto
                     .into(binding.imageView)
             }
 

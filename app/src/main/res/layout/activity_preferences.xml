@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_1">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.7"
+        android:background="@color/black"
+        tools:layout_editor_absoluteX="-120dp"
+        tools:layout_editor_absoluteY="24dp">
+
+    </View>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Preferencias Espaciales"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/white"
+        android:letterSpacing="0.33"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
+
+
+    <View
+        android:id="@+id/vieww"
+        android:layout_width="400dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="10dp"
+        android:background="#0286F2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+    </View>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/preference_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.example.spacecraft10.fragments.SharedPrefFragment"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        app:layout_constraintTop_toTopOf="@+id/vieww"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

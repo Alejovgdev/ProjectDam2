@@ -44,6 +44,7 @@ dependencies {
 
     implementation(libs.play.services.location)
     implementation(libs.androidx.coordinatorlayout)
+    implementation(libs.androidx.preference.ktx)
     val roomVersion = "2.6.1"
 
     implementation(libs.androidx.core.ktx)

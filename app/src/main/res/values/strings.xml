@@ -2,4 +2,6 @@
     <string name="app_name">Spacecraft1.0</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="chat_bot_key" templateMergeStrategy="preserve" translatable="false"></string>
+    <string name="translate_key" templateMergeStrategy="preserve" translatable="false"></string>
 </resources>

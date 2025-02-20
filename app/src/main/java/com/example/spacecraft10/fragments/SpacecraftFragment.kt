@@ -44,6 +44,7 @@ class SpacecraftFragment : Fragment() {
 
         viewModel = ViewModelProvider(requireActivity())[ViewModelSelf::class.java]
         viewModel.lista.observe(viewLifecycleOwner){lista ->
+            // Cuando la lista cambia, se actualiza el adaptador con la nueva lista
             adapter.submitList(lista)
         }
         return binding.root

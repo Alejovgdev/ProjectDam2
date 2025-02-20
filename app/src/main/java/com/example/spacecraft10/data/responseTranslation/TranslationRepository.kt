@@ -4,11 +4,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
+// Repositorio que maneja la traducción de texto utilizando la API de Google Translate
 class TranslationRepository {
 
     private val apikey = ""
 
+    // Función para traducir un texto a un idioma objetivo
     fun translateText(text: String, targetLang: String, callback: (String) -> Unit) {
         val request = TranslationRequest(q = text, target = targetLang)
 
@@ -23,6 +24,7 @@ class TranslationRepository {
                     }
                 }
 
+                // Este método se ejecuta si ocurre un error en la conexión
                 override fun onFailure(call: Call<TranslationResponse>, t: Throwable) {
                     callback("Error de conexión")
                 }

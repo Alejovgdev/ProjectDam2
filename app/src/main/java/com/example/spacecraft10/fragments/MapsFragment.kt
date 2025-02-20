@@ -15,7 +15,6 @@ import com.example.spacecraft10.R
 import com.example.spacecraft10.databinding.FragmentMapsBinding
 import com.example.spacecraft10.db.AgenciaMarkerApplication
 import com.example.spacecraft10.db.AgenciaMarkerDao
-import com.example.spacecraft10.db.AppDatabase
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -34,7 +33,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
     private val binding get() = _binding!!
 
     private lateinit var mMap: GoogleMap
-    private lateinit var database: AppDatabase
+    private lateinit var database: AgenciaMarkerApplication.AppDatabase
     private lateinit var agenciaDao: AgenciaMarkerDao
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -122,11 +121,12 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private fun cargarMarcadores() {
         lifecycleScope.launch(Dispatchers.IO) {
-            val agencias = agenciaDao.getAllAgencias()
+            val agencias = agenciaDao.getAllAgencias() // Obtenemos todas las agencias de la base de datos
             withContext(Dispatchers.Main) {
                 agencias.forEach { agencia ->
                     Log.d("Agencia", agencia.nombre)
                     val posicion = LatLng(agencia.latitud, agencia.longitud)
+                    // Añadimos un marcador en el mapa para cada agencia
                     mMap.addMarker(
                         MarkerOptions()
                             .position(posicion)
